@@ -10,10 +10,17 @@ public class BinarySearchQuizzer
 
 		public static void main(String[] args)
 			{
-				input();
-				sort();
-				FillArray();
+				runProgram();
+				//keepGoing();
 			}
+		
+		public static void runProgram(){
+			input();
+			sort();
+			FillArray();
+			BinarySearch.binarySearch();
+			keepGoing();
+		}
 		
 		public static void input(){
 			System.out.println("Please input any number within the range from 1 to 20. You can input multiple numbers. End your input with the input of number -1.");
@@ -32,26 +39,45 @@ public class BinarySearchQuizzer
 				
 		public static void sort(){
 			Collections.sort(temp);
-			System.out.print("Your array looks like: array = {");
-			for(int i = 1; i < temp.size()-1; i++){
-				System.out.print(temp.get(i) + ", ");
-			}
-			System.out.print(temp.get(temp.size()-1));
-			target = temp.get((int)(Math.random()*temp.size())+1);
-			System.out.print("}. Your target is: " + target + ".");			
 		}
 			
 		public static void FillArray(){
-			int[] array = new int[temp.size()-1];
+			array = new int[temp.size()-1];
 			for (int i = 0; i < temp.size()-1; i++){
 				array[i] = temp.get(i+1);
 			}
+			System.out.print("Your array looks like: array = {");
+			for(int j = 0; j < array.length-1; j++){
+				System.out.print(array[j] + ", ");
+			}
+			System.out.print(array[array.length-1]);
+			target = array[(int)(Math.random()*array.length)];
+			System.out.println("}. Your target is: " + target + ".");
+			System.out.print("                         index: ");
+			for(int k = 0; k < array.length-1; k++){
+				if (array[k] > 9 ){
+					System.out.print(k + " , ");
+				} else {
+					System.out.print(k + ", ");
+				}
+				
+			}
+			System.out.println(temp.size()-2);
 //			for (int j = 0; j < array.length; j++){
 //				System.out.println(array[j]);
 //			}
 		}
 
-		public static void answers(){
+		public static void keepGoing(){
+			System.out.println("Do you want to practice more? (Type \"Yes\" to keep going.)");
+			Scanner userInput1 = new Scanner(System.in);
+			String readyness = userInput1.nextLine();
+			if (readyness.equalsIgnoreCase("Yes")){
+				runProgram();
+			} else {
+				System.out.println("Thanks for using the quizzer. Good bye!");
+				 System.exit(0);
+			}
 			
 		}
 	}
