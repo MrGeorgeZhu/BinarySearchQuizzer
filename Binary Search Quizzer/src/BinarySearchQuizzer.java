@@ -63,8 +63,8 @@ public class BinarySearchQuizzer
 				
 			}
 			System.out.println(temp.size()-2);
-//			for (int j = 0; j < array.length; j++){
-//				System.out.println(array[j]);
+//			for (int l = 0; l < array.length; l++){
+//				System.out.println(array[l]);
 //			}
 		}
 
